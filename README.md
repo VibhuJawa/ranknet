@@ -1,2 +1,2 @@
 # RankNet
-This repo explores training to rank
+This repo explores learning to rank in Pytorch
