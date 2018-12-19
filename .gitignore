@@ -2,4 +2,4 @@
 .ipynb_checkpoints/
 data
 trained_models
-.DS_Store
+utils/__pycache__
