@@ -1,4 +1,5 @@
 import math
+import torch
 
 def train_step(model,train_dataloader,optimizer):
     epoch_loss_ls = []
@@ -7,8 +8,8 @@ def train_step(model,train_dataloader,optimizer):
         xj, tj = sample_batched['doc2']['data'], sample_batched['doc2']['y']
         loss = model(xi, xj, ti, tj)
         total_loss = loss.mean()
-        epoch_loss_ls.append(total_loss.item())
         model.zero_grad()
+        epoch_loss_ls.append(total_loss.item())
         total_loss.backward()
         optimizer.step()
 

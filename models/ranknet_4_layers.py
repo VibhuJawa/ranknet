@@ -19,6 +19,8 @@ class RankNet(nn.Module):
         s_j = self.single_forward(x_j)
         s_diff = s_i - s_j
         s_diff = s_diff.squeeze(1)
+        s_diff = torch.clamp(s_diff, min=0.1,max=100)
+
         S_ij = torch.zeros(size=t_i.shape)
         pos_mask = t_i > t_j
         neg_mask = t_i < t_j
@@ -28,6 +30,7 @@ class RankNet(nn.Module):
         S_ij[equal_mask] = 0
 
         loss = (1 - S_ij) * s_diff / 2.0 + torch.log(1 + torch.exp(-s_diff))
+        loss = torch.clamp(loss, min=0.1,max=10)
         return loss
 
     def predict(self, x):
