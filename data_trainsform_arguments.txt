@@ -1,0 +1,6 @@
+#train
+python utils/transfrom_dataset.py --data_file data/MQ2007/Fold1/train.txt --output_dir data/MQ2007/Fold1/train_json
+
+# test
+python utils/transfrom_dataset.py --data_file data/MQ2007/Fold1/test.txt --output_dir data/MQ2007/Fold1/test_json
+

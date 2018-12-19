@@ -1,0 +1,5 @@
+--input_dim 46
+--train_dir data/MQ2007/Fold1/train_json
+--test_dir data/MQ2007/Fold1/test_json
+--num_epochs 100
+--test_interval 20
