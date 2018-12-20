@@ -18,8 +18,8 @@ parser.add_argument('--train_dir', default="data/MSLR-WEB10K/Fold1/train_json", 
 parser.add_argument('--test_dir', default="data/MSLR-WEB10K/Fold1/test_json", type=str, help='test_dir ')
 parser.add_argument('--input_dim', default=136, type=int, help='input_dim')
 parser.add_argument('--batch_size', default=64, type=int, help='batch size')
-parser.add_argument('--num_epochs', default=10, type=int, help='number of epochs')
-parser.add_argument('--test_interval',default=5,type=int,help = 'interval b/w test runs')
+parser.add_argument('--num_epochs', default=1000, type=int, help='number of epochs')
+parser.add_argument('--test_interval',default=20,type=int,help = 'interval b/w test runs')
 parser.add_argument('--load_model',default=False)
 parser.add_argument('--model_path',default=None)
 
