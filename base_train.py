@@ -24,7 +24,7 @@ parser.add_argument('--load_model',default=False)
 parser.add_argument('--model_path',default=None)
 
 
-
+is_cuda_available = torch.cuda.is_available()
 
 args = parser.parse_args()
 
@@ -72,6 +72,9 @@ train_dataloader = DataLoader(ranknet_train_ds, batch_size=batch_size,shuffle=Tr
 model = RankNet(input_dim)
 if args.load_model:
     model.load_state_dict(torch.load(args.model_path))
+
+if is_cuda_available:
+    model = model.cuda()
 
 optimizer = torch.optim.Adam(model.parameters(), lr = 0.0001)
 

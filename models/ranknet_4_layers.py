@@ -20,8 +20,10 @@ class RankNet(nn.Module):
         s_diff = s_i - s_j
         s_diff = s_diff.squeeze(1)
         s_diff = torch.clamp(s_diff, min=0.1,max=100)
-
-        S_ij = torch.zeros(size=t_i.shape)
+        if torch.cuda.is_available():
+          S_ij = torch.zeros(size=t_i.shape).cuda()
+        else:
+          S_ij = torch.zeros(size=t_i.shape)
         pos_mask = t_i > t_j
         neg_mask = t_i < t_j
         equal_mask = t_i == t_j
